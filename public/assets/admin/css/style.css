@@ -1,0 +1,190 @@
+body {
+    margin: 0;
+    font-family: 'Tahoma';
+    background-color: #f4f4f4; /* Màu nền cho toàn bộ trang */
+}
+
+.container {
+    width: 100%; /* Đảm bảo container chiếm hết chiều rộng */
+    max-width: 1200px; /* Đặt chiều rộng tối đa */
+    margin: 0 auto; /* Căn giữa */
+    padding: 0 15px; /* Padding cho các bên */
+}
+
+header, footer {
+    width: 100%;
+}
+
+/* Đảm bảo rằng phần main chiếm hết chiều rộng của body */
+main {
+    width: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+
+
+/* Định dạng header */
+.header-top {
+    background-color: #bcd4f4;
+    text-align: center;
+    padding-top: 20px;
+    padding-bottom: 16px;
+}
+
+.header-main {
+    background-color: #323232;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 10px 10px 60px;
+}
+
+.menu {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
+
+.menu>li {
+    display: inline-block; /* tách thành các khối trên cùng 1 hàng*/
+    text-transform: uppercase;
+}
+
+.menu>li>a {
+    text-decoration: none;
+    color: #fff;
+    padding: 0 10px;
+}
+
+.menu>li>a:hover {
+    text-decoration: underline;
+}
+
+/* Định dạng footer */
+footer {
+    background-color: #095aef;
+    text-align: center;
+    padding: 10px 0;
+}
+
+footer span {
+    color: #fff;
+    font-size: 20px;
+}
+
+/* Định dạng bảng */
+.table-container {
+    display: flex;
+    justify-content: center; /* Căn giữa bảng */
+    margin-top: 20px;
+    width: 100%;
+}
+
+table {
+    width: 100%; /* Đặt chiều rộng bảng tự động để chiếm toàn bộ không gian */
+    margin: 0 auto; /* Căn giữa bảng */
+    border-collapse: collapse;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+table th, table td {
+    padding: 12px 15px; /* Tạo khoảng đệm giữa các ô */
+    text-align: left;
+    border: 1px solid #ddd; /* Đường viền xám nhạt giữa các ô */
+}
+
+table th {
+    background-color: #f4f4f9; /* Màu nền cho hàng tiêu đề */
+    color: #333;
+    font-weight: bold;
+}
+
+table tr:nth-child(even) {
+    background-color: #f9f9f9; /* Màu nền cho các hàng chẵn */
+}
+
+table tr:hover {
+    background-color: #f1f1f1; /* Hiệu ứng hover */
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    table, table th, table td {
+        display: block;
+        width: 100%;
+    }
+
+    table th, table td {
+        padding: 10px;
+        text-align: left;
+        border: none;
+        border-bottom: 1px solid #ddd;
+    }
+}
+
+/* Đảm bảo các nút trong ô td được căn đều */
+td .button-group {
+    display: flex;
+    gap: 10px; /* Khoảng cách giữa các nút */
+    justify-content: center; /* Căn giữa các nút trong ô */
+}
+
+td .button-group .btn {
+    flex: 3; /* Đảm bảo các nút có chiều rộng đồng đều */
+    text-align: center;
+    padding: 8px 0;
+    font-size: 14px;
+    border-radius: 5px; /* Bo góc nhẹ */
+}
+
+/* Định dạng chung cho form */
+form {
+
+    max-width: 100%; /* Đảm bảo form chiếm hết chiều rộng */
+    margin: 0 auto; /* Căn giữa form */
+    padding: 20px;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Định dạng nhãn (label) */
+form label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #333;
+}
+
+/* Định dạng các ô input và select */
+form input[type="text"],
+form input[type="number"],
+form input[type="date"],
+form select {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 14px;
+    box-sizing: border-box;
+}
+
+/* Định dạng nút submit */
+form input[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+form input[type="submit"]:hover {
+    background-color: #218838;
+}
