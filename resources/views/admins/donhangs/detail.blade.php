@@ -1,4 +1,6 @@
+{{-- Để kế thừa lại master layout ta sử dụng extends --}}
 @extends('layouts.admin')
+{{-- Một file chỉ được kế thừa 1 master layout --}}
 
 @section('title')
     Quản lý nhân viên
@@ -8,6 +10,7 @@
 
 @endsection
 
+{{-- @section: dùng để chị định phần nội dụng được hiển thị --}}
 @section('content')
     <div class="container-fluid">
         <!-- start page title -->
@@ -22,10 +25,10 @@
                             <li class="breadcrumb-item active">Danh sách sản phẩm</li>
                         </ol>
                     </div>
+
                 </div>
             </div>
         </div>
-
         @if(session('success'))
         <div class="alert alert-success alert-dismissible fade show" role="alert">
            <strong> {{session('success')}} </strong>
@@ -33,77 +36,68 @@
        </div>
        @endif
 
+       <!-- Danger Alert -->
        @if(session('error'))
        <div class="alert alert-danger alert-dismissible fade show" role="alert">
            <strong>  {{session('error')}} </strong>
            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
        </div>
        @endif
-
         <div class="row">
             <div class="col">
+
                 <div class="h-100">
                     <div class="card">
                         <div class="card-header align-items-center d-flex">
-                            <h4 class="card-title mb-0 flex-grow-1">Danh sách bảng lương</h4>
+                            <h4 class="card-title mb-0 flex-grow-1">Danh sách sản phẩm</h4>
                             <a href="" class="btn btn-soft-success material-shadow-none">
-                                Thêm bảng lương
+                                {{-- <i class="?act=form-them-danh-muc="ri-add-circle-line align-middle me-1"></i> --}}
+                                Thêm đơn hàng
                             </a>
                         </div><!-- end card header -->
 
-                        <div class="card-body">
                             <div class="live-preview">
                                 <div class="table-responsive">
                                     <table class="table table-striped table-nowrap align-middle mb-0">
                                         <thead>
                                             <tr>
-                                                <th>ID</th>
-                                                <th>Mã NV</th>
-                                                <th>Tên</th>
-                                                <th>Email</th>
-                                                <th>SĐT</th>
-                                                <th>Lương cơ bản</th>
-                                                <th>Thưởng</th>
-                                                <th>Tổng lương</th>
-                                                <th>Trạng thái</th>
-                                                <th>Hành động</th>
+                                                <th>Tên khách hàng</th>
+                                                <th>Địa chỉ</th>
+                                                <th>Số điện thoại</th>
+                                                <th>Đơn hàng</th>
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            @foreach($data  as $index => $bl)
-                                       
+                                            @foreach($khachHangs as $khach)
                                                 <tr>
-                                                    <td>{{$index + 1}}</td>
-                                                    <td>{{ $bl['ma_nhan_vien'] }}</td>
-                                                    <td>{{ $bl['ten_nhan_vien'] }}</td>
-                                                    <td>{{ $bl['email'] }}</td>
-                                                    <td>{{ $bl['sdt'] }}</td>
-                                                    <td>{{ number_format($bl['luong_co_ban']) }} VNĐ</td>
-                                                    <td>{{ number_format($bl['tien_thuong']) }} VNĐ</td>
-                                                    <td><strong>{{ number_format($bl['tong_luong']) }} VNĐ</strong></td>
-                                                    <td>{{ $bl['ten_trang_thai'] }}</td>
-
+                                                    <td>{{ $khach->ten_khach_hang }}</td>
+                                                    <td>{{ $khach->dia_chi }}</td>
+                                                    <td>{{ $khach->sdt }}</td>
                                                     <td>
-                                                        @if($bl['ten_trang_thai'] !== 'Đã thanh toán')
-                                                        <a href="{{route('bangluong.edit',$bl['nhan_vien_id'])}}" class="btn btn-warning">Sửa</a>
-                                                        @endif
-                                                        <form action="" method="POST" onsubmit="return confirm('Bạn có muốn xoá ko ?')">
-                                                            @csrf
-                                                            @method('DELETE')
-                                                            <button class="btn btn-danger" type="submit">Xoá</button>
-                                                        </form>
+                                                        <ul>
+                                                            @foreach($khach->donHangs as $donHang)
+                                                                <li>Mã đơn hàng: {{ $donHang->ma_don_hang }}</li>
+                                                            @endforeach
+                                                        </ul>
                                                     </td>
                                                 </tr>
                                             @endforeach
                                         </tbody>
                                     </table>
+                                    <div class="mt-3">
+
+                                    </div>
                                 </div>
                             </div>
+
                         </div><!-- end card-body -->
                     </div><!-- end card -->
+
                 </div> <!-- end .h-100-->
+
             </div> <!-- end col -->
         </div>
+
     </div>
 @endsection
 

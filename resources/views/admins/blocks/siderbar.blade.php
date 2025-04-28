@@ -106,7 +106,7 @@
                         </ul>
                     </div>
                 </li>
-
+                    <!-- Quản lý Nhân Viên-->
                 <li class="nav-item">
                     <a class="nav-link menu-link {{ request()->routeIs('nhanvien.*') ? 'active' : '' }}" href="#sidebarNhanVien" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="sidebarNhanVien">
                         <i class="ri-stack-line"></i> <span data-key="t-advance-ui">Quản lý nhân viên</span>
@@ -122,9 +122,9 @@
                         </ul>
                     </div>
                 </li>
-
+                    <!-- Quản lý công việc-->
                 <li class="nav-item">
-                    <a class="nav-link menu-link {{ request()->routeIs('nhanvien.*') ? 'active' : '' }}" href="#sidebarNhanVien" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="sidebarNhanVien">
+                    <a class="nav-link menu-link {{ request()->routeIs('congviec.*') ? 'active' : '' }}" href="#sidebarNhanVien" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="sidebarNhanVien">
                         <i class="ri-stack-line"></i> <span data-key="t-advance-ui">Quản lý Cồng việc</span>
                     </a>
                     <div class="collapse menu-dropdown" id="sidebarNhanVien">
@@ -139,22 +139,63 @@
                     </div>
                 </li>
 
-                <li class="nav-item">
-                    <a class="nav-link menu-link {{ request()->routeIs('bangluong.*') ? 'active' : '' }}" href="#sidebarBangLuong" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="sidebarBangLuong">
-                        <i class="ri-stack-line"></i> <span data-key="t-advance-ui">Quản lý lương</span>
-                    </a>
-                    <div class="collapse menu-dropdown" id="sidebarBangLuong">
-                        <ul class="nav nav-sm flex-column">
-                            <li class="nav-item">
-                                <a href="{{ route('bangluong.index') }}" class="nav-link" data-key="t-sweet-alerts">Danh sách</a>
-                            </li>
+                    <!-- Quản lý Khách hàng -->
+                    <li class="nav-item">
+                        <a class="nav-link menu-link {{ request()->routeIs('khachhang.*') ? 'active' : '' }}" href="#sidebarKhachHang" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="sidebarKhachHang">
+                            <i class="ri-stack-line"></i> <span>Quản lý Khách hàng</span>
+                        </a>
+                        <div class="collapse menu-dropdown" id="sidebarKhachHang">
+                            <ul class="nav nav-sm flex-column">
+                                <li class="nav-item">
+                                    <a href="{{ route('khachhang.index') }}" class="nav-link">Danh sách</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="{{ route('khachhang.create') }}" class="nav-link">Thêm mới</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+
+                    <!-- Quản lý Sản phẩm -->
+                    <li class="nav-item">
+                        <a class="nav-link menu-link {{ request()->routeIs('sanpham.*') ? 'active' : '' }}" href="#sidebarSanPham" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="sidebarSanPham">
+                            <i class="ri-stack-line"></i> <span>Quản lý sản phẩm</span>
+                        </a>
+                        <div class="collapse menu-dropdown" id="sidebarSanPham">
+                            <ul class="nav nav-sm flex-column">
+                                <li class="nav-item">
+                                    <a href="{{ route('sanpham.index') }}" class="nav-link">Danh sách</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="{{ route('sanpham.create') }}" class="nav-link">Thêm mới</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                    <!------------- Quản lí đơn hang------------>
+                    <li class="nav-item">
+                        <a class="nav-link menu-link {{ request()->routeIs('donhang.*') ? 'active' : '' }}" href="#sidebarSanPham" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="sidebarSanPham">
+                            <i class="ri-stack-line"></i> <span>Quản lý đơn hàng</span>
+                        </a>
+                        <div class="collapse menu-dropdown" id="sidebarSanPham">
+                            <ul class="nav nav-sm flex-column">
+                                <li class="nav-item">
+                                    <a href="{{ route('donhang.index') }}" class="nav-link">Danh sách</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="{{ route('donhang.create') }}" class="nav-link">Thêm mới</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
 
                             <li class="nav-item">
-                                <a href="" class="nav-link" data-key="t-nestable-list">Thêm mới</a>
+                                <a href="{{ route('sanpham.create') }}" class="nav-link" data-key="t-nestable-list">Thêm mới</a>
                             </li>
                         </ul>
                     </div>
                 </li>
+            </li>
 
                 <li class="menu-title"><i class="ri-more-fill"></i> <span data-key="t-pages">Bán hàng</span></li>
             </ul>

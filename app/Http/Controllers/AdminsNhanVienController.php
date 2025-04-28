@@ -45,7 +45,8 @@ class AdminsNhanVienController extends Controller
     try {
         // Validate dữ liệu đầu vào
         $request->validate([
-            'ma_nhan_vien' => 'required|string|max:255|unique:nhan_viens,ma_nhan_vien',
+            'ma_nhan_vien' =>
+             'required|string|max:255|unique:nhan_viens,ma_nhan_vien',
             'ten_nhan_vien' => 'required|string|max:255',
             'sdt' => 'required|string|max:20',
             'email' => 'required|email|max:255|unique:nhan_viens,email',

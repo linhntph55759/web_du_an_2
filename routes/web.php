@@ -1,12 +1,16 @@
 <?php
 
+use App\Http\Controllers\AdminkhachHangController;
 use App\Http\Controllers\AdminPhongBanController;
 use App\Http\Controllers\AdminsBangLuongController;
 use App\Http\Controllers\AdminsChucVuController;
+use App\Http\Controllers\AdminsDonHangController;
 use App\Http\Controllers\AdminsNhanVienController;
+use App\Http\Controllers\AdminsSanPhamController;
 use App\Http\Controllers\AdminsTaiKhoanController;
 use App\Http\Controllers\CongViecController;
 use App\Http\Controllers\TrangThaiController;
+use App\Models\AdminsSanPham;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -30,6 +34,11 @@ Route::resource('phongban',            AdminPhongBanController::class);
 Route::resource('taikhoan',            AdminsTaiKhoanController::class);
 Route::resource('congviec',            CongViecController::class);
 Route::resource('trangthai',            TrangThaiController::class);
+Route::resource('khachhang',             AdminkhachHangController::class);
+Route::resource('sanpham',             AdminsSanPhamController::class);
+Route::resource('donhang',             AdminsDonHangController::class);
+Route::get('/khachhangmua', [AdminkhachHangController::class, 'show'])->name('khachhangmua.show');
+
 // Xem thông tin cá nhân và đổi mk
 
 Route::get('tai-khoan-cua-toi', [AdminsTaiKhoanController::class, 'profile'])->name('taikhoan.profile');
